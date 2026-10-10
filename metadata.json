@@ -1,0 +1,6 @@
+{
+  "name": "World Holidays & Celebrations",
+  "description": "Discover global holidays, cultural observances, and special days with interactive countdown timers, calendar sync, and community discussions.",
+  "requestFramePermissions": ["notifications", "microphone", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

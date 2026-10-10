@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile and synced settings",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "bookmarkedHolidays": { "type": "array" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "createdAt"]
+    },
+    "Bookmark": {
+      "title": "Bookmark",
+      "description": "A bookmarked global holiday for the user",
+      "type": "object",
+      "properties": {
+        "holidayId": { "type": "string" },
+        "holidayName": { "type": "string" },
+        "country": { "type": "string" },
+        "date": { "type": "string" },
+        "savedAt": { "type": "string" }
+      },
+      "required": ["holidayId", "savedAt"]
+    },
+    "CommunityPost": {
+      "title": "CommunityPost",
+      "description": "Community shared cultural traditions and festive stories",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "authorUid": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorCountry": { "type": "string" },
+        "holidayId": { "type": "string" },
+        "holidayName": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "likes": { "type": "number" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["authorUid", "authorName", "holidayId", "title", "content", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile and synchronization document"
+    },
+    "/users/{userId}/bookmarks/{bookmarkId}": {
+      "schema": "Bookmark",
+      "description": "User bookmarked holidays for annual vacation planning"
+    },
+    "/communityPosts/{postId}": {
+      "schema": "CommunityPost",
+      "description": "Public community celebration stories and travel tips"
+    }
+  }
+}
